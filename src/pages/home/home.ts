@@ -26,7 +26,7 @@ export class HomePage implements OnInit {
   }
   getCurrentPosition(refresher?) {
     const self = this;
-    self.geolocation.getCurrentPosition().then((resp) => {
+    self.geolocation.getCurrentPosition({ enableHighAccuracy: true}).then((resp) => {
       const lon = resp.coords.longitude;
       const lat = resp.coords.latitude;
       self.getWeather(lon, lat, refresher);
